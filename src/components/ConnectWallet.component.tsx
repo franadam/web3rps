@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import { useWeb3Wallet } from '../hooks';
-import Metamask from '../../assets/svg/metamask.png';
+import MetamaskLogo from '../assets/metamask.logo.png';
 import { Modal } from './Modal.component';
 
 export const ConnectWallet: FC = (): JSX.Element => {
@@ -52,7 +52,7 @@ export const ConnectWallet: FC = (): JSX.Element => {
               style={{ display: 'flex', alignItems: 'center', gap: '3px' }}
             >
               <img
-                src={Metamask}
+                src={MetamaskLogo}
                 width="20px"
                 height="20px"
                 alt="Metamask"

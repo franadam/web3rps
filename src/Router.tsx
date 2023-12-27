@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Game, NewGame } from './pages';
+import { Game, Login, NewGame } from './pages';
 import { DashboardLayout } from './components';
 
 export const Router = () => {
@@ -9,7 +9,7 @@ export const Router = () => {
       <Routes>
         <Route
           path="/"
-          element={<DashboardLayout />}
+          element={<Login />}
         >
           <Route
             index
