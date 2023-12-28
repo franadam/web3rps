@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWeb3React } from '@web3-react/core';
 
-import { metaMask } from '../utils/metamask.connector';
+import { metaMask } from '../utils';
 
 export const useWeb3Wallet = () => {
   const { isActive, account } = useWeb3React();
