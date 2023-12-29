@@ -6,6 +6,7 @@ import { Web3ReactHooks } from '@web3-react/core';
 
 import { metaMask, hooks as metaMaskHooks } from './utils/metamask.connector';
 import { Router } from './Router';
+import { GameProvider } from './context/Game.context';
 
 const connectors: [MetaMask, Web3ReactHooks][] = [[metaMask, metaMaskHooks]];
 const App: FC = (): JSX.Element => {
@@ -17,10 +18,12 @@ const App: FC = (): JSX.Element => {
 
   return (
     <Web3ReactProvider connectors={connectors}>
-      <Helmet>
-        <title>RPSLS</title>
-      </Helmet>
-      <Router />
+      <GameProvider>
+        <Helmet>
+          <title>RPSLS</title>
+        </Helmet>
+        <Router />
+      </GameProvider>
     </Web3ReactProvider>
   );
 };
