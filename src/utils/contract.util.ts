@@ -1,6 +1,7 @@
 import { BigNumber, Contract, ContractFactory } from 'ethers';
 
 import { Game, Move } from '../interfaces';
+import { getAddress } from '@ethersproject/address';
 
 export const getContractFactory = (
   bytecode: string,
@@ -47,4 +48,12 @@ export const getGameData = async (contract: Contract): Promise<Game> => {
     timeout: secondsToMiliseconds(timeoutSeconds),
     result: '',
   };
+};
+
+export const isAddress = (value: string) => {
+  try {
+    return getAddress(value);
+  } catch {
+    return false;
+  }
 };
