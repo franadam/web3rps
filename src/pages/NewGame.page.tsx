@@ -12,10 +12,11 @@ import { useNavigate } from 'react-router-dom';
 import { Hasher } from '../abis/Hasher.abi';
 import { RPS } from '../abis/RPS.abi';
 
-import { Card, NewGameForm, JoinGame, NewGameData } from '../components';
+import { Card, NewGameForm, JoinGame } from '../components';
 import { randomSalt } from '../utils';
 import actions from '../context/game.action';
 import { useGame, useContract, useContractFactory } from '../hooks';
+import { NewGameData } from '../interfaces';
 
 export const NewGame: FC = (): JSX.Element => {
   const hasher = useContract(Hasher);

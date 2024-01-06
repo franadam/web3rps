@@ -9,7 +9,7 @@ import actions from '../../context/game.action';
 import { Moves } from '../../context/Game.context';
 import { Move } from '../../interfaces';
 import { Card } from '../Card.component';
-import { InfoWrapper } from '../InfoWrapper.component';
+import { InfoWrapper } from '../Game';
 
 interface Props {
   move: number;

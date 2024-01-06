@@ -55,3 +55,15 @@ export interface GameContextType {
   state: GameState;
   dispatch: React.Dispatch<GameAction>;
 }
+
+export type GameStatusType =
+  | 'pending'
+  | 'settled'
+  | 'cancelled'
+  | 'actionNeeded';
+
+export interface NewGameData {
+  j1Move: Move;
+  j2Address: string;
+  stake: number;
+}

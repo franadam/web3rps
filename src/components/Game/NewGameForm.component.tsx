@@ -13,14 +13,8 @@ import { FaEthereum } from 'react-icons/fa';
 
 import { useWeb3Wallet } from '../../hooks/';
 import { isAddressEquals, useGetPlayerBalance } from '../../utils';
-import { Move } from '../../interfaces';
+import { Move, NewGameData } from '../../interfaces';
 import { SelectMove } from '../SelectMove.component';
-
-export interface NewGameData {
-  j1Move: Move;
-  j2Address: string;
-  stake: number;
-}
 
 interface Props {
   onClick?: (data: NewGameData) => void;

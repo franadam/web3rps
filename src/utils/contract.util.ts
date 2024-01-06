@@ -2,6 +2,7 @@ import { BigNumber, Contract, ContractFactory } from 'ethers';
 
 import { Game, Move } from '../interfaces';
 import { getAddress } from '@ethersproject/address';
+import { secondsToMiliseconds } from './time.util';
 
 export const getContractFactory = (
   bytecode: string,
@@ -11,8 +12,6 @@ export const getContractFactory = (
 ): ContractFactory => {
   return new ContractFactory(abi, bytecode, library.getSigner(account));
 };
-
-const secondsToMiliseconds = (seconds: number): number => seconds * 1000;
 
 export const getGameData = async (contract: Contract): Promise<Game> => {
   const [
