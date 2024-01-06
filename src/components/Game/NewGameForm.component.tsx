@@ -20,11 +20,6 @@ interface Props {
   onClick?: (data: NewGameData) => void;
 }
 
-const RoundedJazzicon = styled(Jazzicon)`
-  border-radius: 50%;
-  padding: 4px;
-`;
-
 export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
   const { account } = useWeb3Wallet();
   const [newGameData, setNewGameData] = React.useState<NewGameData>({
@@ -52,7 +47,7 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
 
   return (
     <div>
-      <Typography variant="h6">✍️ Your move</Typography>
+      <StyledTypography variant="h6">✍️ Your move</StyledTypography>
       <SelectMove
         id="j1Move"
         value={newGameData.j1Move}
@@ -71,7 +66,7 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
           (!!newGameData.j2Address && !isAddress(newGameData.j2Address))
         }
       >
-        <Typography
+        <StyledTypography
           color={
             isAddressEquals(newGameData.j2Address, account) ||
             (!!newGameData.j2Address && !isAddress(newGameData.j2Address))
@@ -81,7 +76,7 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
           variant="h6"
         >
           👱 Player 2 address
-        </Typography>
+        </StyledTypography>
         <Input
           fullWidth
           value={newGameData.j2Address}
@@ -104,20 +99,20 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
           }
         />
         {isAddressEquals(newGameData.j2Address, account) && (
-          <Typography
+          <StyledTypography
             variant="caption"
             color="error"
           >
             You can &apost play against yourself
-          </Typography>
+          </StyledTypography>
         )}
         {!!newGameData.j2Address && !isAddress(newGameData.j2Address) && (
-          <Typography
+          <StyledTypography
             variant="caption"
             color="error"
           >
             Please enter a correct wallet address
-          </Typography>
+          </StyledTypography>
         )}
       </FormControl>
 
@@ -125,14 +120,15 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
         fullWidth
         error={!validateEthersBalance}
       >
-        <Typography
+        <StyledTypography
           color={!validateEthersBalance ? 'error' : 'initial'}
           variant="h6"
         >
           💰 Stake
-        </Typography>
+        </StyledTypography>
         <Input
           fullWidth
+          error={newGameData.stake < 0}
           value={newGameData.stake}
           type="number"
           placeholder="Choose a stake"
@@ -160,13 +156,24 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
             </InputAdornment>
           }
         />
+
+        {!newGameData.stake ||
+          (newGameData.stake < 0 && (
+            <StyledTypography
+              variant="caption"
+              color="error"
+            >
+              The stake must be positive
+            </StyledTypography>
+          ))}
+
         {!validateEthersBalance && (
-          <Typography
+          <StyledTypography
             variant="caption"
             color="error"
           >
             Your balance is too low
-          </Typography>
+          </StyledTypography>
         )}
       </FormControl>
 
@@ -176,7 +183,9 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
         disabled={
           !newGameData.j2Address ||
           !validatej2Address ||
+          !isAddress(newGameData.j2Address) ||
           !newGameData.stake ||
+          newGameData.stake < 0 ||
           !newGameData.j1Move ||
           !validateEthersBalance
         }
@@ -187,3 +196,13 @@ export const NewGameForm: FC<Props> = ({ onClick }: Props): JSX.Element => {
     </div>
   );
 };
+
+const RoundedJazzicon = styled(Jazzicon)`
+  border-radius: 50%;
+  padding: 4px;
+`;
+
+const StyledTypography = styled(Typography)`
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+`;

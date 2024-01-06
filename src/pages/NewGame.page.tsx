@@ -87,7 +87,14 @@ export const NewGame: FC = (): JSX.Element => {
             Create a game
           </Typography>
         )}
-        <Paper sx={{ p: 5 }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           {!gameLoading ? (
             <>
               <NewGameForm onClick={handleNewGame} />
@@ -118,7 +125,7 @@ export const NewGame: FC = (): JSX.Element => {
               <CircularProgress />
             </Box>
           )}
-        </Paper>
+        </div>
       </Card>
     </Container>
   );

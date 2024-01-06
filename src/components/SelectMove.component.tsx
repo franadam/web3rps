@@ -1,26 +1,24 @@
-import React, { DetailedHTMLProps, FC, SelectHTMLAttributes } from 'react';
+import React, { FC } from 'react';
 
 import { Moves } from '../context/Game.context';
+import { FormControl, MenuItem, Select, SelectProps } from '@mui/material';
 
-interface Props
-  extends DetailedHTMLProps<
-    SelectHTMLAttributes<HTMLSelectElement>,
-    HTMLSelectElement
-  > {
-  label?: string;
-}
-
-export const SelectMove: FC<Props> = ({ ...props }): JSX.Element => {
+export const SelectMove: FC<SelectProps> = ({ ...props }): JSX.Element => {
   return (
-    <select {...props}>
-      {Object.values(Moves).map((key, index) => (
-        <option
-          key={key}
-          value={index + 1}
-        >
-          {key}
-        </option>
-      ))}
-    </select>
+    <FormControl
+      fullWidth
+      variant="outlined"
+    >
+      <Select {...props}>
+        {Object.values(Moves).map((key, index) => (
+          <MenuItem
+            key={key}
+            value={index + 1}
+          >
+            {key}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };

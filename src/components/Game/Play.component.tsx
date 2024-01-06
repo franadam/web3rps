@@ -67,7 +67,7 @@ export const Play: FC = (): JSX.Element => {
           <SelectMove
             id="j1Move"
             label="Choose a move"
-            onChange={(e) => setMove(e.target.value)}
+            onChange={(e) => setMove(e.target.value as string)}
           />
         ) : (
           <>

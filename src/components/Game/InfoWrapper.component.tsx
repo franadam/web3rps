@@ -21,8 +21,11 @@ export const InfoWrapper: FC<Props> = ({
   const copyToClipboard = (): void => {
     try {
       navigator.clipboard.writeText(content);
-      toast.success(`${title} copied to clipboard.`);
-      console.log(`${title} copied to clipboard.`);
+      const message = 'copied to clipboard.';
+      toast.success(
+        typeof title === 'string' ? `${title} ${message}` : message
+      );
+      console.log(`${content} copied to clipboard.`);
     } catch (error: any) {
       toast.error(error.message);
     }
