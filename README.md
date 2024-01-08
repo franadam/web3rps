@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Rock Paper Scissors Lizard Spock - Web3 Edition
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+Rock Paper Scissors Lizard Spock is an extended version of the classic game, now enhanced with web3 technology. This Ethereum-based game allows players to challenge each other using ETH as a stake. With its simple and secure gameplay, it offers an exciting way to engage with blockchain technology.
 
-## Available Scripts
+<img alt="create_game"  src="./screenshots/rps_create_game.png" width="370"/>
 
-In the project directory, you can run:
+## How to Play
+1. **Creating a Game**: A player initiates the game, sets their move in a secure manner, selects an opponent, and stakes ETH.
+2. **Joining a Game**: The challenged player then matches the stake and chooses their move.
+3. **Revealing Moves**: The game concludes with the initiator revealing their move. The smart contract then distributes the ETH to the winner or splits it in a tie.
 
-### `npm start`
+## Features
+- Simple and intuitive web3 interface.
+- Secure commitment scheme to ensure fair play.
+- Timed responses to avoid indefinite waiting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Material UI](https://mui.com/material-ui/getting-started/)
+- [Styled Components](https://www.npmjs.com/package/styled-components)
+- [Ethers.js](https://docs.ethers.org/v5/getting-started/)
+- [React-toastify](https://www.npmjs.com/package/react-toastify)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
+1. **Prerequisites**: Ensure you have MetaMask installed and configured for the Ethereum testnet (specific testnet details here).
+2. **Installation**: 
 
-### `npm test`
+Clone the repos, in the project directory, you can run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm i`
 
-### `npm run build`
+`npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Playing the Game**: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- connect to metamask
+- choose your move
+- select an opponent
+- stake ETH
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<div style="display:flex; flex-direction:column;justify-content:space-between">
+<div style="display:flex; ">
+<img style="margin:0 5px;" alt="rps-home"  src="./screenshots/rps_connect.png" width="370"/>
+<img style="margin:0 5px;" alt="create_game"  src="./screenshots/rps_create_game.png" width="370"/>
+</div>
+<br/>
+<br/>
+<div style="display:flex; ">
+<img style="margin:0 5px;" alt="rps_game_page 01"  src="./screenshots/rps_game_page 01.png" width="370"/>
+<img style="margin:0 5px;" alt="rps_game_page 02"  src="./screenshots/rps_game_page 02.png" width="370"/>
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Limitations
+- Supports only 2 players at a time.
+- Optimized for Firefox browser.
+- Not optimized for mobile.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Testing
+- [URL](https://main--web3rps.netlify.app/) for testing the deployed version of the game.
