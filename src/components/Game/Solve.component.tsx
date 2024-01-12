@@ -5,8 +5,6 @@ import {
   Button,
   Input,
   FormControl,
-  Select,
-  MenuItem,
   Grid,
   CircularProgress,
   Typography,
@@ -23,6 +21,7 @@ import { RPS } from '../../abis/RPS.abi';
 import { getGameData } from '../../utils';
 import { useContract, useGame } from '../../hooks';
 import { Move } from '../../interfaces';
+import { SelectMove } from '../SelectMove.component';
 
 export const Solve: FC = (): JSX.Element => {
   const {
@@ -117,15 +116,12 @@ export const Solve: FC = (): JSX.Element => {
               fullWidth
             >
               <InputLabel htmlFor="j1Move">First move</InputLabel>
-              <Select
+              <SelectMove
                 id="j1Move"
                 label="First move"
                 value={move}
                 onChange={(e) => setMove(Number(e.target.value))}
-              >
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-              </Select>
+              />
             </FormControl>
             <FormControl
               variant="outlined"
